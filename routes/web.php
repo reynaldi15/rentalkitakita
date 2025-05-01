@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/dashboard', function () {
+    return view('admin/dashboard');
+});
+
 Route::middleware('guest')->group(function () {
     Route::resource('products', ProductController::class);
     Route::get('/admin/login', [AuthController::class, 'showLogin'])->name('admin.login');

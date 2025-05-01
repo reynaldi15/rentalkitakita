@@ -1,0 +1,8 @@
+body.sidebar-collapse .main-sidebar:hover {
+    width: 250px !important; /* tampil penuh saat hover */
+    opacity: 1 !important;
+    background-color: white !important;
+    z-index: 1050; /* biar di atas konten */
+    transition: all 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
