@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-ocument.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const swiper = new Swiper('.mySwiper', {
       slidesPerView: 4,
       slidesPerGroup: 1,
