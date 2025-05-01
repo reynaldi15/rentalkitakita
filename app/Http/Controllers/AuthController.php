@@ -1,48 +1,37 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // Menampilkan halaman login
-    public function showLogin()
-    {
-        return view('admin.login');
+    public function showLoginForm() {
+        return view('auth.login');
     }
 
-    // Proses login
-    public function login(Request $request)
-    {
-        // Validasi input
-        $this->validateLogin($request);
-
-        $credentials = $request->only('email', 'password');
+    public function login(Request $request) {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate(); // regenerasi session untuk proteksi
-            return redirect()->route('admin.dashboard');
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
         }
 
-        return back()->with('error', 'Email atau password salah.');
+        return back()->withErrors([
+            'email' => 'Email atau password salah.'
+        ])->onlyInput('email');
     }
 
-    // Logout
-    public function logout()
-    {
+    public function logout(Request $request) {
         Auth::logout();
-        return redirect()->route('admin.login');
-    }
-
-    // Validasi input login
-    protected function validateLogin(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:6',
-        ]);
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }
+
