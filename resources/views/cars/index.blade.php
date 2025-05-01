@@ -1,40 +1,47 @@
 @extends('fragment.admin')
 
 @section('content')
-<h2>Daftar Galeri</h2>
+<h2>Daftar Mobil</h2>
 
 <!-- Tombol Create Modal -->
-<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#createModal">
-    + Tambah Gambar
+<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#createCarModal">
+    + Tambah Mobil
 </button>
 
 @if (session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
 @endif
 
-<!-- Tabel Galeri -->
+<!-- Tabel Mobil -->
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Judul</th>
+            <th>Nama</th>
+            <th>Harga</th>
+            <th>Jenis</th>
             <th>Gambar</th>
             <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($galleries as $gallery)
+        @foreach($cars as $car)
         <tr>
-            <td>{{ $gallery->title }}</td>
+            <td>{{ $car->name }}</td>
+            <td>Rp{{ number_format($car->price, 0, ',', '.') }}</td>
+            <td>{{ ucfirst($car->type) }}</td>
             <td>
-                @if($gallery->image)
-                    <img src="{{ asset('storage/' . $gallery->image) }}" width="100">
+                @if($car->image)
+                    <img src="{{ asset('storage/' . $car->image) }}" width="80">
                 @endif
             </td>
             <td>
-                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal{{ $gallery->id }}">Edit</button>
-                <form action="{{ route('galleries.destroy', $gallery) }}" method="POST" style="display:inline-block">
+                <!-- Tombol Edit Modal -->
+                <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editCarModal{{ $car->id }}">Edit</button>
+
+                <!-- Form Hapus -->
+                <form method="POST" action="{{ route('cars.destroy', $car->id) }}" style="display:inline-block">
                     @csrf @method('DELETE')
-                    <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">Hapus</button>
+                    <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus?')">Hapus</button>
                 </form>
             </td>
         </tr>
@@ -43,16 +50,16 @@
 </table>
 
 <!-- Modal Create -->
-<div class="modal fade" id="createModal" tabindex="-1">
+<div class="modal fade" id="createCarModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <form method="POST" action="{{ route('galleries.store') }}" enctype="multipart/form-data" class="modal-content">
+        <form method="POST" action="{{ route('cars.store') }}" enctype="multipart/form-data" class="modal-content">
             @csrf
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Gambar</h5>
+                <h5 class="modal-title">Tambah Mobil</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                @include('galleries.form', ['gallery' => null])
+                @include('cars.form', ['car' => null])
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -63,17 +70,17 @@
 </div>
 
 <!-- Modal Edit -->
-@foreach($galleries as $gallery)
-<div class="modal fade" id="editModal{{ $gallery->id }}" tabindex="-1">
+@foreach($cars as $car)
+<div class="modal fade" id="editCarModal{{ $car->id }}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <form method="POST" action="{{ route('galleries.update', $gallery) }}" enctype="multipart/form-data" class="modal-content">
+        <form method="POST" action="{{ route('cars.update', $car->id) }}" enctype="multipart/form-data" class="modal-content">
             @csrf @method('PUT')
             <div class="modal-header">
-                <h5 class="modal-title">Edit Gambar</h5>
+                <h5 class="modal-title">Edit Mobil</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                @include('galleries.form', ['gallery' => $gallery])
+                @include('cars.form', ['car' => $car])
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>

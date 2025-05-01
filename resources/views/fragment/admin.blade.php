@@ -12,6 +12,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Produk</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('galleries.index') }}">Galeri</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('blogs.index') }}">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('cars.index') }}">Armada</a></li>
             </ul>
         </div>
         <form method="POST" action="{{ route('logout') }}">
@@ -23,7 +24,7 @@
     <div class="container mt-4">
         @yield('content')
     </div>
-    @yield('scripts')
+    <!-- @yield('scripts') -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -1,6 +1,11 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:ital,wght@0,400;0,700;0,800;1,700;1,800&family=Roboto+Mono:wght@100..700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
 .navbar{
     height: 90px;
     background-color: white;
@@ -8,17 +13,24 @@
 }
 nav .navbar a, li, span{
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
 }
 
 nav .navbar-nav .nav-link:hover {
-    color: blue;
+    color: #046bd2;
     cursor: pointer;
+}
+
+.nav-link.active {
+    color: #046bd2 !important;
+    font-weight: bold;
 }
 
 section .konten1{
     background-color: rgb(0, 149, 255);
     height: 600px;
+    margin-top: 90px;
 }
 
 section .konten1{
@@ -72,12 +84,23 @@ section .konten1 h4{
     height: 280px;
 }
 
+.konten2 .container{
+    padding: 0px 140px 0px 140px;
+}
+
 .konten2 .row{
     justify-content: center;
 }
 
-.konten2 .driver, .bandara{
-    margin-right: -20px;
+.konten2 .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.253);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.konten2 img{
+    height: 100px;
+    width: 100px;
 }
 
 section .konten3{
@@ -134,4 +157,289 @@ section .konten3{
     display: block;
     font-size: 15px;
     font-weight: bold;
+}
+
+.konten4 .container{
+    padding: 0px 100px 0px 100px;
+}
+
+.konten4 .judul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.konten4 .judul p{
+    color: #046bd2;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+.konten4 .judul i{
+    color: #046bd2;
+    font-size: 35px;
+}
+
+.konten4 a{
+    margin-top: 20px;
+    height: 40px;
+    padding-bottom: 5px;
+    background: linear-gradient(45deg, #6c7b8c, #324154);
+    justify-content: center;
+}
+
+.konten4 a i{
+    font-size: 1rem ;
+    color: white;
+}
+
+.konten4 a span{
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.konten4 .detail{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+.konten4 .kriteria{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -15px;
+}
+
+.konten4 .akhir{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -15px;
+    margin-bottom: -5px;
+}
+
+.konten5{
+    background-color: #046bd2;
+    margin-top: 100px;
+    padding-bottom: 50px;
+}
+
+.konten5 .container{
+    padding: 0px 100px 0px 100px;
+}
+
+.konten5 .judul{
+    margin-top: 60px;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.konten5 .penawaran{
+    color: white;
+    font-size: 25px;
+}
+
+.konten5 .hubungi{
+    margin-top: 20px;
+    background-color: #324154;
+    color: white;
+    width: 170px;;
+    height: 40px;
+}
+
+.konten6 .container{
+    padding: 0px 100px 0px 100px;
+}
+
+.konten6 .judul, .konten7 .judul{
+    margin-top: 120px;
+    color: #046bd2;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.konten6 .judul span, .konten7 .judul span{
+    border-bottom: 3px solid #046bd2;
+    padding-bottom: 4px; 
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.konten6 .tentang1{
+    margin-top: 40px;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.konten6 .tentang2{
+    margin-top: 30px;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.konten6 hr{
+    margin-top: 100px;
+}
+
+.konten7 .container{
+    padding: 0px 100px 0px 100px;
+}
+
+.konten7 a{
+    margin-top: 20px;
+    width: 220px;
+    height: 45px;
+    padding-bottom: 5px;
+    background-color: #324154;
+    justify-content: center;
+}
+
+.konten7 a i{
+    font-size: 1rem ;
+    color: white;
+}
+
+.konten7 a span{
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.konten7 .judul{
+    margin-bottom: 30px;
+}
+
+.konten7 .card p{
+    font-weight: bold;
+    color: #046bd2;
+    font-family: 'Poppins',sans-serif;
+}
+
+.konten7 .pengalaman{
+    background-color: #e6f0fa;
+}
+
+.konten7 .user{
+    color: #046bd2;
+    font-size: 25px;
+}
+
+.konten7 .icon-round{
+    border: 3px #046bd2 solid;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.konten7 .terjangkau{
+    background-color: #e7fae6;
+}
+
+.konten7 .harga{
+    color: #046bd2;
+    font-size: 25px;
+}
+
+.konten7 .mobil{
+    color: #046bd2;
+    font-size: 25px;
+}
+
+.konten7 .jam{
+    color: #046bd2;
+    font-size: 20px;
+}
+
+.konten7 .terawat{
+    background-color: #f9e5e4;
+}
+.konten7 .support{
+    background-color: #faf9e5;
+}
+
+.konten8{
+    background-color: #046bd2;
+    margin-top: 100px;
+    padding-bottom: 30px;
+}
+
+.konten8 .container{
+    padding: 40px 100px 0px 100px;
+}
+
+.konten8 .galery{
+    display: flex;
+    align-items: center;
+}
+
+.konten8 .judul{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 35px;
+}
+
+/* swipper corousel */
+.swiper-slide {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+.swiper {
+    padding-bottom: 30px;
+}
+
+.swiper-pagination-bullet {
+    background-color: #fff;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.konten9 .container{
+    padding: 50px 100px 0px 100px;
+}
+
+.konten9 .brand{
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.konten9 .judul{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.konten9 .round-icon{
+    background-color: #046bd2;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.konten9 .insta{
+    color: white;
+    padding: 5px;
+}
+
+.konten9 .icon{
+    color: #046bd2;
+    margin-right: 2px;
+    font-size: 1.2rem;
 }

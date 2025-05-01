@@ -46,34 +46,13 @@
                 </form>
             </td>
         </tr>
-
-        <!-- Modal Edit -->
-        <div class="modal fade" id="editModal{{ $product->id }}" tabindex="-1">
-            <div class="modal-dialog">
-                <form method="POST" action="{{ route('products.update', $product) }}"
-                      enctype="multipart/form-data" class="modal-content">
-                    @csrf @method('PUT')
-                    <div class="modal-header">
-                        <h5 class="modal-title">Edit Produk</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        @include('products.form', ['product' => $product])
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-success">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
         @endforeach
     </tbody>
 </table>
 
-<!-- Modal Create -->
-<div class="modal fade" id="createModal" tabindex="-1">
-    <div class="modal-dialog">
+<!-- Modal Create (di luar table dan foreach) -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data" class="modal-content">
             @csrf
             <div class="modal-header">
@@ -81,7 +60,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                @include('products.form')
+                @include('products.form', ['product' => null])
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -91,22 +70,41 @@
     </div>
 </div>
 
+<!-- Modal Edit (diletakkan setelah tabel) -->
+@foreach($products as $product)
+<div class="modal fade" id="editModal{{ $product->id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form method="POST" action="{{ route('products.update', $product) }}"
+              enctype="multipart/form-data" class="modal-content">
+            @csrf @method('PUT')
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Produk</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                @include('products.form', ['product' => $product])
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-success">Simpan</button>
+            </div>
+        </form>
+    </div>
+</div>
+@endforeach
 @endsection
 
-@section('scripts')
+<!-- @section('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const createModal = document.getElementById('createModal');
-
     createModal.addEventListener('show.bs.modal', function () {
-        @if (!session()->has('_old_input'))
-            createModal.querySelector('input[name="name"]').value = '';
-            createModal.querySelector('textarea[name="description"]').value = '';
-            createModal.querySelector('input[name="price_per_day"]').value = '';
-            createModal.querySelector('select[name="availability"]').value = '1';
-            createModal.querySelector('input[name="image"]').value = '';
-        @endif
+        const form = createModal.querySelector('form');
+        form.reset(); // Reset semua input
+        form.querySelector('select[name="availability"]').value = '1'; // Set default
+        const img = form.querySelector('img');
+        if (img) img.remove(); // Hapus preview gambar
     });
 });
 </script>
-@endsection
+@endsection -->
