@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\GalleryController;
+
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +21,6 @@ use Illuminate\Support\Facades\Route;
 
 // Halaman publik
 Route::get('/', [DashboardController::class, 'index'])->name('home');
-// Route::get('/', function(){
-//     return view('home');
-// });
 
 // Autentikasi
 Route::middleware('guest')->group(function () {
@@ -32,6 +33,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 // Halaman management (hanya bisa diakses jika login)
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'management'])->name('dashboard');
-    // Tambahkan route CRUD lainnya di sini (product, blog, dll)
+    Route::resource('products', ProductController::class);
+    Route::resource('blogs', BlogController::class);
+    Route::resource('galleries', GalleryController::class);
+
 });
 

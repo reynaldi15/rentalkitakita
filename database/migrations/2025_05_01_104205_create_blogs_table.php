@@ -10,22 +10,21 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::create('posts', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->string('slug')->unique();
-        $table->text('content');
-        $table->string('thumbnail')->nullable();
-        $table->timestamps();
-    });
-}
+    {
+        Schema::create('blogs', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->text('content');
+            $table->string('image')->nullable();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('blogs');
     }
 };

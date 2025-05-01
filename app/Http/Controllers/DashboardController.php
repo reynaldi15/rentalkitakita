@@ -10,6 +10,11 @@ class DashboardController extends Controller
     public function index()
     {
         $products = Product::latest()->get(); // atau pagination
-        return view('dashboard.public', compact('products'));
+        return view('home', compact('products'));
+    }
+    
+    public function management()
+    {
+        return view('admin.dashboard');
     }
 }
