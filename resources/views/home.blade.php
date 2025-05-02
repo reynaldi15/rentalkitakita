@@ -206,7 +206,7 @@
                             <div class="card-body">
                                 <hr>
                                 <h4 class="text-center fw-bold">Rp. {{ number_format($car->price, 0, ',', '.') }}</h4>
-                                <a class="btn d-block mx-auto" href="https://wa.me/6285212298688?text={{ urlencode('Halo, saya tertarik dengan Armada ' . $car->name . '. Apakah masih tersedia? saya ingin memesan untuk tanggal : ') }}" target="_blank">
+                                <a class="btn d-block mx-auto" href="https://wa.me/{{$car->waLink}}?text={{ urlencode('Halo, saya tertarik dengan Armada ' . $car->name . '. Apakah masih tersedia? saya ingin memesan untuk tanggal : ') }}" target="_blank">
                                     <i class="bi bi-whatsapp me-2"></i> <span> Pesan Sekarang </span>
                                 </a>
                                 <p class="detail">Detail Fitur :</p>

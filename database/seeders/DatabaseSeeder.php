@@ -71,10 +71,11 @@ class DatabaseSeeder extends Seeder
         ]);
         Car::create([
             'name' => 'Avanza',
-            'price' => 300000,
-            'image' => 'cars/avanza.jpg',
+            'price' => 310000,
+            'image' => 'cars/avanza2.jpg',
             'features' => ['AC Dingin', 'Kapasitas 7 Orang', 'BBM Irit', 'Driver Ramah'], // tanpa json_encode
             'type' => 'kecil',
+            'waLink'=> '6281317987754',
             'created_at' => now(),
             'updated_at' => now(),
          ]);

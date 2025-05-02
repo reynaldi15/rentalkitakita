@@ -15,8 +15,9 @@ class DashboardController extends Controller
         // $galerries= Gallery::latest()->get();
         $galleries= Gallery::all();
         $smallCars = Car::where('type', 'kecil')->get();
-        $bigCars = Car::where('type', 'besar')->get();    
-        return view('home', compact('products', 'galleries', 'smallCars', 'bigCars'));
+        $bigCars = Car::where('type', 'besar')->get();
+        $cars= Car::all();    
+        return view('home', compact('products', 'galleries', 'smallCars', 'bigCars','cars'));
     }
     
     public function management()

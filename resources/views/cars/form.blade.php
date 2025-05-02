@@ -43,6 +43,15 @@
 </div>
 
 <div class="mb-3">
+    <label>Nomor WhatsApp</label>
+    <input type="text" name="waLink" class="form-control @error('waLink') is-invalid @enderror"
+        value="{{ old('waLink', $car->waLink ?? '') }}">
+    @error('waLink')
+        <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+</div>
+
+<div class="mb-3">
     <label>Gambar</label>
     <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
     @error('image')

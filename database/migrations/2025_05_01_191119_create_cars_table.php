@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('image'); // path to the image file
             $table->json('features'); // list of features
             $table->string('type')->default('kecil');
+            $table->string('waLink')->nullable(); // link ke WhatsApp
             $table->timestamps();
         });
     }

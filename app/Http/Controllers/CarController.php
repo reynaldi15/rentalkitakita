@@ -41,6 +41,7 @@ class CarController extends Controller
             'features' => 'required|array',
             'features.*' => 'string',
             'type' => 'required|in:kecil,besar',
+            'waLink'=> 'nullable'
         ]);
 
         $path = $request->file('image')->store('cars', 'public');
@@ -66,6 +67,7 @@ class CarController extends Controller
             'features' => 'required|array',
             'features.*' => 'string',
             'type' => 'required|in:kecil,besar',
+            'waLink'=> 'nullable'
         ]);
 
         if ($request->hasFile('image')) {
