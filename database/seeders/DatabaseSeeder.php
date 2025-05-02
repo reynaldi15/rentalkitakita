@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Car;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -57,5 +58,25 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
         ]);
+
+
+        Car::create([
+            'name' => 'Avanza',
+            'price' => 300000,
+            'image' => 'cars/avanza.jpg',
+            'features' => ['AC Dingin', 'Kapasitas 7 Orang', 'BBM Irit', 'Driver Ramah'], // tanpa json_encode
+            'type' => 'kecil',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        Car::create([
+            'name' => 'Avanza',
+            'price' => 300000,
+            'image' => 'cars/avanza.jpg',
+            'features' => ['AC Dingin', 'Kapasitas 7 Orang', 'BBM Irit', 'Driver Ramah'], // tanpa json_encode
+            'type' => 'kecil',
+            'created_at' => now(),
+            'updated_at' => now(),
+         ]);
     }
 }

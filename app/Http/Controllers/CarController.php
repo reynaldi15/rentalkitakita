@@ -7,80 +7,82 @@ use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
-    public function index()
+    // public function index(Request $request)
+    // {
+    //     $cars = Car::all();
+    //     $sort = $request->get('sort', 'created_at');
+    //     $order = $request->get('order', 'desc');
+
+    //     $cars = Car::orderBy($sort, $order)->get();
+    //     return view('cars.index', compact('cars'));
+    // }
+    public function index(Request $request)
     {
-        $cars = Car::latest()->get();
-        return view('cars.index', compact('cars'));
+        $sort = $request->get('sort', 'created_at'); // kolom pengurutan
+        $order = $request->get('order', 'desc');     // arah pengurutan (asc/desc)
+
+        $cars = Car::orderBy($sort, $order)->paginate(10); // paginate, bukan get
+
+        return view('cars.index', compact('cars', 'sort', 'order'));
     }
+
 
     public function create()
     {
-        return view('dashboard.cars.create');
+        return view('cars.create');
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
             'price' => 'required|integer',
-            'type' => 'required|in:kecil,besar',
+            'image' => 'required|image|mimes:jpg,jpeg,png',
             'features' => 'required|array',
-            'image' => 'nullable|image|max:2048',
+            'features.*' => 'string',
+            'type' => 'required|in:kecil,besar',
         ]);
 
-        $imagePath = $request->file('image')?->store('cars', 'public');
+        $path = $request->file('image')->store('cars', 'public');
 
-        Car::create([
-            'name' => $request->name,
-            'price' => $request->price,
-            'type' => $request->type,
-            'features' => json_encode($request->features),
-            'image' => $imagePath,
-        ]);
+        $validated['image'] = $path;
 
-        return redirect()->route('cars.index')->with('success', 'Mobil berhasil ditambahkan.');
+        Car::create($validated);
+
+        return redirect()->route('cars.index')->with('success', 'Armada berhasil ditambahkan.');
     }
 
     public function edit(Car $car)
     {
-        return view('dashboard.cars.edit', compact('car'));
+        return view('cars.edit', compact('car'));
     }
 
     public function update(Request $request, Car $car)
     {
-        $request->validate([
-            'name' => 'required',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
             'price' => 'required|integer',
-            'type' => 'required|in:kecil,besar',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png',
             'features' => 'required|array',
-            'image' => 'nullable|image|max:2048',
+            'features.*' => 'string',
+            'type' => 'required|in:kecil,besar',
         ]);
 
         if ($request->hasFile('image')) {
-            if ($car->image) {
-                Storage::disk('public')->delete($car->image);
-            }
-            $car->image = $request->file('image')->store('cars', 'public');
+            Storage::disk('public')->delete($car->image);
+            $validated['image'] = $request->file('image')->store('cars', 'public');
         }
 
-        $car->update([
-            'name' => $request->name,
-            'price' => $request->price,
-            'type' => $request->type,
-            'features' => json_encode($request->features),
-            'image' => $car->image,
-        ]);
+        $car->update($validated);
 
-        return redirect()->route('cars.index')->with('success', 'Mobil berhasil diperbarui.');
+        return redirect()->route('cars.index')->with('success', 'Armada berhasil diupdate.');
     }
 
     public function destroy(Car $car)
     {
-        if ($car->image) {
-            Storage::disk('public')->delete($car->image);
-        }
+        Storage::disk('public')->delete($car->image);
         $car->delete();
 
-        return redirect()->route('cars.index')->with('success', 'Mobil berhasil dihapus.');
+        return redirect()->route('cars.index')->with('success', 'Armada berhasil dihapus.');
     }
 }

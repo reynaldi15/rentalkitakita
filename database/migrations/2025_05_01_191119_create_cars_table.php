@@ -21,6 +21,18 @@ return new class extends Migration
             $table->timestamps();
         });
     }
+//     public function up(): void
+// {
+//     Schema::create('cars', function (Blueprint $table) {
+//         $table->id();
+//         $table->string('name');
+//         $table->string('image')->nullable(); // path ke gambar
+//         $table->integer('price');
+//         $table->text('features');
+//         $table->string('type')->default('kecil'); // bisa disimpan sebagai teks HTML atau JSON
+//         $table->timestamps();
+//     });
+// }
 
     /**
      * Reverse the migrations.

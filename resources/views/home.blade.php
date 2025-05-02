@@ -14,7 +14,7 @@
         </div>
     </section>
    <!-- konten 2 -->
-   <!-- <section>
+   <section>
         <div class="konten2">
             <div class="container">
                 <div class="row">
@@ -48,9 +48,9 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
-    <section>
+    <!-- <section>
     <div class="konten2">
         <div class="container">
             <div class="row">
@@ -74,7 +74,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
     <!-- konten3 -->
@@ -206,11 +206,11 @@
                             <div class="card-body">
                                 <hr>
                                 <h4 class="text-center fw-bold">Rp. {{ number_format($car->price, 0, ',', '.') }}</h4>
-                                <a class="btn d-block mx-auto" href="https://wa.me/6281234567890" target="_blank">
+                                <a class="btn d-block mx-auto" href="https://wa.me/6285212298688?text={{ urlencode('Halo, saya tertarik dengan Armada ' . $car->name . '. Apakah masih tersedia? saya ingin memesan untuk tanggal : ') }}" target="_blank">
                                     <i class="bi bi-whatsapp me-2"></i> <span> Pesan Sekarang </span>
                                 </a>
                                 <p class="detail">Detail Fitur :</p>
-                                @foreach(json_decode($car->features, true) as $index => $feature)
+                                @foreach($car->features as $index => $feature)
                                     <p class="{{ $loop->last ? 'akhir' : 'kriteria' }}">{{ $feature }}</p>
                                 @endforeach
                             </div>
@@ -232,7 +232,7 @@
                                     <i class="bi bi-whatsapp me-2"></i> <span> Pesan Sekarang </span>
                                 </a>
                                 <p class="detail">Detail Fitur :</p>
-                                @foreach(json_decode($car->features, true) as $index => $feature)
+                                @foreach($car->features as $index => $feature)
                                     <p class="{{ $loop->last ? 'akhir' : 'kriteria' }}">{{ $feature }}</p>
                                 @endforeach
                             </div>
@@ -244,6 +244,7 @@
         </div>
     </div>
 </section>
+
 
 
     <!-- konten 5 -->
