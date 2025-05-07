@@ -19,6 +19,16 @@ class DashboardController extends Controller
         $cars= Car::all();    
         return view('home', compact('products', 'galleries', 'smallCars', 'bigCars','cars'));
     }
+
+    public function travel()
+    {
+        return view('travel');
+    }
+
+    public function testimoni()
+    {
+        return view('testimoni');
+    }
     
     public function management()
     {

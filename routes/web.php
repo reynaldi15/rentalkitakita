@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 // Halaman publik
 Route::get('/', [DashboardController::class, 'index'])->name('home');
+Route::get('/travel', [DashboardController::class, 'travel'])->name('travel');
+Route::get('/testimoni', [DashboardController::class, 'testimoni'])->name('testimoni');
 
 // Autentikasi
 Route::middleware('guest')->group(function () {

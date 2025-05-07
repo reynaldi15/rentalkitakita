@@ -1,19 +1,112 @@
 @extends('fragment.admin')
 
 @section('content')
-<h2>Daftar Blog</h2>
+<div class="container mt-5 ms-3">
+    <h2>Informasi Kontak</h2>
+    <div class="info mt-5">
+        <form>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="exampleInputEmail1" class="form-label">Nomor Kontak</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="exampleInputEmail1" class="form-label">Nomor Rekening</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="exampleInputEmail1" class="form-label">Nama Nasabah</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <label for="waInput" class="form-label">Link WA</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="waInput" placeholder="Contoh: 6281234567890">
+                    </div>
+                    <div class="col-md-5">
+                        <a class="mb-0">➡️ Link: <span id="waLink">https://wa.me/</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="exampleInputEmail1" class="form-label">Tentang Kami</label>
+                    </div>
+                    <div class="col-md-4">
+                        <textarea class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                    </div>
+                    <div class="col-md-4">
+                        <textarea class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <label for="waInput" class="form-label">Instagram</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="waInput" placeholder="Contoh: 6281234567890">
+                    </div>
+                    <div class="col-md-5">
+                        <a class="mb-0">➡️ Link: <span id="waLink">https://wa.me/</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="exampleInputEmail1" class="form-label">Alamat</label>
+                    </div>
+                    <div class="col-md-4">
+                        <textarea class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
 
 <!-- Tombol Create Modal -->
-<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#createModal">
+<!-- <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#createModal">
     + Tambah Blog
 </button>
 
 @if (session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
-@endif
+@endif -->
 
 <!-- Tabel Blog -->
-<table class="table table-bordered">
+<!-- <table class="table table-bordered">
     <thead>
         <tr>
             <th>Judul</th>
@@ -32,18 +125,18 @@
                     <img src="{{ asset('storage/' . $blog->image) }}" width="80">
                 @endif
             </td>
-            <td>
-                <!-- Tombol Edit Modal -->
-                <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
+            <td> -->
+<!-- Tombol Edit Modal -->
+<!-- <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
                         data-bs-target="#editModal{{ $blog->id }}"
                         data-title="{{ $blog->title }}"
                         data-content="{{ $blog->content }}"
                         data-image="{{ asset('storage/' . $blog->image) }}">
                     Edit
-                </button>
+                </button> -->
 
-                <!-- Form Hapus -->
-                <form method="POST" action="{{ route('blogs.destroy', $blog) }}" style="display:inline-block">
+<!-- Form Hapus -->
+<!-- <form method="POST" action="{{ route('blogs.destroy', $blog) }}" style="display:inline-block">
                     @csrf @method('DELETE')
                     <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus?')">Hapus</button>
                 </form>
@@ -51,10 +144,10 @@
         </tr>
         @endforeach
     </tbody>
-</table>
+</table> -->
 
 <!-- Modal Create (di luar table dan foreach) -->
-<div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+<!-- <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <form method="POST" action="{{ route('blogs.store') }}" enctype="multipart/form-data" class="modal-content">
             @csrf
@@ -71,10 +164,10 @@
             </div>
         </form>
     </div>
-</div>
+</div> -->
 
 <!-- Modal Edit (diletakkan setelah tabel) -->
-@foreach($blogs as $blog)
+<!-- @foreach($blogs as $blog)
 <div class="modal fade" id="editModal{{ $blog->id }}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <form method="POST" action="{{ route('blogs.update', $blog) }}" enctype="multipart/form-data" class="modal-content">
@@ -92,30 +185,32 @@
             </div>
         </form>
     </div>
-</div>
+</div> -->
+
+
 @endforeach
 @endsection
 
 @push('scripts')
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const modal = document.getElementById('editModal');
-    modal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        const id = button.getAttribute('data-id');
-        const title = button.getAttribute('data-title');
-        const content = button.getAttribute('data-content');
-        const image = button.getAttribute('data-image');
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('editModal');
+        modal.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const id = button.getAttribute('data-id');
+            const title = button.getAttribute('data-title');
+            const content = button.getAttribute('data-content');
+            const image = button.getAttribute('data-image');
 
-        modal.querySelector('form').action = `/blogs/${id}`;
-        modal.querySelector('input[name="title"]').value = title;
-        modal.querySelector('textarea[name="content"]').value = content;
+            modal.querySelector('form').action = `/blogs/${id}`;
+            modal.querySelector('input[name="title"]').value = title;
+            modal.querySelector('textarea[name="content"]').value = content;
 
-        // Set image preview (optional)
-        if (image) {
-            modal.querySelector('#edit-image-preview').src = image;
-        }
+            // Set image preview (optional)
+            if (image) {
+                modal.querySelector('#edit-image-preview').src = image;
+            }
+        });
     });
-});
 </script>
 @endpush

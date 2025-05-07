@@ -1,0 +1,39 @@
+/* --- Sidebar --- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #343a40;
+    transition: transform 0.3s ease;
+    z-index: 1040;
+  }
+  
+  /* Mobile: sidebar disembunyikan */
+  @media (max-width: 767.98px) {
+    .sidebar {
+      transform: translateX(-100%);
+    }
+  
+    .sidebar.show {
+      transform: translateX(0);
+    }
+  
+    #main-content.sidebar-open {
+      margin-left: 0;
+    }
+  }
+  
+  /* Laptop & Desktop: sidebar selalu muncul */
+  @media (min-width: 768px) {
+    #main-content {
+      margin-left: 250px;
+      transition: margin-left 0.3s ease;
+    }
+  
+    .sidebar {
+      transform: translateX(0) !important;
+    }
+  }
+  

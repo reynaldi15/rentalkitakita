@@ -1,7 +1,7 @@
 @extends('fragment.admin')
 
 @section('content')
-<h2>Daftar Produk</h2>
+<h2>List Testimoni</h2>
 
 <!-- Tombol Create Modal -->
 <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#createModal">
@@ -13,7 +13,7 @@
 @endif
 
 <!-- Tabel Produk -->
-<table class="table table-bordered">
+<table class="table table-bordered" style="border: 5px black solid;">
     <thead>
         <tr>
             <th>Nama</th>

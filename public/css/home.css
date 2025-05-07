@@ -27,6 +27,38 @@ nav .navbar-nav .nav-link:hover {
     font-weight: bold;
 }
 
+/* midnight blue + gold */
+/* #mainNavbar {
+    background-color: #0F1C2E;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 90px;
+}
+
+.navbar-brand {
+    color: #D4AF37 !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: #F8F9FA !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #D4AF37 !important;
+}
+
+.bi-telephone-fill,
+.text-black {
+    color: #F8F9FA !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+} */
+
+
 section .konten1{
     background-color: rgb(0, 149, 255);
     height: 600px;
@@ -77,6 +109,63 @@ section .konten1 h4{
     font-size: 1rem;
     color: white;
 }
+
+/* midnight blue + gold */
+/* section .konten1 {
+    background-color: #0F1C2E;
+    height: 600px;
+    margin-top: 90px;
+    padding-top: 120px;
+    padding-left: 140px;
+    padding-right: 140px;
+}
+
+.konten1 .container {
+    padding-left: 40px;
+    padding-right: 40px;
+    color: #F8F9FA;
+}
+
+section .konten1 h1 {
+    font-size: 80px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #D4AF37;
+}
+
+section .konten1 h4 {
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: 500;
+    color: #F8F9FA;
+}
+
+.konten1 a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 220px;
+    height: 45px;
+    padding-bottom: 5px;
+    background-color: #b99230;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.konten1 a:hover {
+    background-color: #26d72c;
+}
+
+.konten1 a i,
+.konten1 a span {
+    font-size: 1rem;
+    color: #0F1C2E;
+    font-weight: 600;
+} */
+
 
 .konten2{
     margin-top: -60px;
@@ -443,3 +532,184 @@ section .konten3{
     margin-right: 2px;
     font-size: 1.2rem;
 }
+
+/* travel */
+.travel1{
+    background-color: rgb(0, 149, 255);
+    height: 400px;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.travel1 .container{
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center
+;}
+
+.travel1 h1{
+    font-size: 80px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: white;
+}
+
+.travel1 h4{
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: 300;
+    color: white;
+}
+
+.travel2 .container{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.travel2 .judul-card{
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Poppins' , sans-serif;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.travel2 a{
+    margin-top: 20px;
+    height: 40px;
+    padding-bottom: 5px;
+    background: linear-gradient(45deg, #6c7b8c, #324154);
+    justify-content: center;
+}
+
+.travel2 a i{
+    font-size: 1rem ;
+    color: white;
+}
+
+.travel2 a span{
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.travel2 .detail{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+.travel2 .kriteria{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -15px;
+}
+
+.travel2 .akhir{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -15px;
+    margin-bottom: -5px;
+}
+
+.travel2 .lokasi{
+    margin-top: 80px;
+    margin-bottom: 70px;
+    font-size: 40px;
+    font-weight: bold;
+
+}
+
+.travel2 .jakarta h3, .bandung h3{
+    font-family: 'Poppins', sans-serif;
+    margin-top: 140px;
+    margin-bottom: 50px;
+    color: #046bd2;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.travel2 .bogor h3{
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #046bd2;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.travel-link {
+    background-color: rgba(128, 128, 128, 0.8); /* abu transparan */
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+.travel-link .container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.travel-link .btn {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.travel-link .btn:hover {
+    background-color: #046bd2;
+    color: #fff;
+}
+
+/* testimoni */
+
+.testimoni .container{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.testimoni p{
+    text-align: center;
+    margin-top: 80px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #046bd2;
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+.testimoni hr{
+    margin-bottom: 60px;
+}
+
+.shadow-custom {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff;
+  }
+  
+  .shadow-custom:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .testimonial-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .batas-testi{
+    height: 40px;
+    background-color: #046bd2;
+  }
