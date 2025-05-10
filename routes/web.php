@@ -6,7 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\GalleryController;
-
+use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('blogs', BlogController::class);
     Route::resource('galleries', GalleryController::class);
     Route::resource('cars', CarController::class);
+    Route::resource('testimonis', TestimoniController::class);
 
 });
 

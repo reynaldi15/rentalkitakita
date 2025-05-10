@@ -43,7 +43,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-danger fw-bold" href="{{ route('products.index') }}">
+                <a class="nav-link text-danger fw-bold" href="{{ route('testimonis.index') }}">
                     <i class="fas fa-box me-2"></i> Testimoni
                 </a>
             </li>

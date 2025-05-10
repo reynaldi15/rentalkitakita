@@ -1,6 +1,6 @@
 @extends('fragment.app')
 
-@section('title', 'Travel')
+@section('title', 'Testimoni')
 
 @section('content')
 
@@ -23,7 +23,7 @@
     </div>
 </section> -->
 
-<section>
+<!-- <section>
     <div class="testimoni py-5">
         <div class="container">
             <p>Testimoni</p>
@@ -57,7 +57,35 @@
 
 <section>
     <div class="batas-testi"></div>
+</section> -->
+<section>
+    <div class="testimoni py-5">
+        <div class="container">
+            <p class="h4 text-center">Testimoni</p>
+            <hr class="mx-auto mb-4" style="width: 100px; border-top: 2px solid #000;">
+
+            <div class="row g-3">
+                @foreach($testimonis as $testimoni)
+                    <div class="col-6 col-md-3">
+                        <div class="testimonial-card shadow-custom p-2">
+                            <img src="{{ asset('storage/' . $testimoni->image) }}" class="img-fluid rounded" alt="Testimoni {{ $loop->iteration }}">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center mt-4">
+                {{ $testimonis->links() }}
+            </div>
+        </div>
+    </div>
 </section>
+
+<section>
+    <div class="batas-testi" style="height: 50px;"></div>
+</section>
+
 
 
 <!-- kontak -->

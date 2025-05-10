@@ -6,6 +6,7 @@ use App\Models\Car;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Testimoni;
 
 class DashboardController extends Controller
 {
@@ -16,8 +17,8 @@ class DashboardController extends Controller
         $galleries= Gallery::all();
         $smallCars = Car::where('type', 'kecil')->get();
         $bigCars = Car::where('type', 'besar')->get();
-        $cars= Car::all();    
-        return view('home', compact('products', 'galleries', 'smallCars', 'bigCars','cars'));
+        $cars= Car::all();
+        return view('home', compact('products', 'galleries', 'smallCars', 'bigCars','cars',));
     }
 
     public function travel()
@@ -27,7 +28,8 @@ class DashboardController extends Controller
 
     public function testimoni()
     {
-        return view('testimoni');
+        $testimonis= Testimoni::latest()->paginate(8);   
+        return view('testimoni', compact('testimonis'));
     }
     
     public function management()
