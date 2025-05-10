@@ -18,12 +18,12 @@ nav .navbar a, li, span{
 }
 
 nav .navbar-nav .nav-link:hover {
-    color: #046bd2;
+    color: #840808;
     cursor: pointer;
 }
 
 .nav-link.active {
-    color: #046bd2 !important;
+    color: #840808 !important;
     font-weight: bold;
 }
 
@@ -60,7 +60,7 @@ nav .navbar-nav .nav-link:hover {
 
 
 section .konten1{
-    background-color: rgb(0, 149, 255);
+    background-color: #840808;
     height: 600px;
     margin-top: 90px;
 }
@@ -96,18 +96,22 @@ section .konten1 h4{
     width: 220px;
     height: 45px;
     padding-bottom: 5px;
-    background-color: #324154;
+    background-color: #eadec4;
+}
+
+.konten1 a:hover {
+    background-color: #26d72c;
 }
 
 .konten1 a i{
     font-size: 1rem ;
-    color: white;
+    color: #840808;
 }
 
 .konten1 a span{
     align-items: center;
     font-size: 1rem;
-    color: white;
+    color: #840808;
 }
 
 /* midnight blue + gold */
@@ -222,7 +226,7 @@ section .konten3{
 }
 
 .konten3 .Nomor{
-    background-color: #046bd2;
+    background-color: #840808;
     color: white;
     width: 500px;
     height: 60px;
@@ -232,7 +236,7 @@ section .konten3{
 }
 
 .konten3 .Rekening{
-    background-color: #046bd2;
+    background-color: #840808;
     color: white;
     width: 500px;
     height: 80px;
@@ -258,14 +262,14 @@ section .konten3{
 }
 
 .konten4 .judul p{
-    color: #046bd2;
+    color: #840808;
     font-size: 35px;
     font-weight: bold;
     margin-bottom: -10px;
 }
 
 .konten4 .judul i{
-    color: #046bd2;
+    color: #840808;
     font-size: 35px;
 }
 
@@ -273,7 +277,7 @@ section .konten3{
     margin-top: 20px;
     height: 40px;
     padding-bottom: 5px;
-    background: linear-gradient(45deg, #6c7b8c, #324154);
+    background: linear-gradient(45deg, #6c7b8c, #eadec4);
     justify-content: center;
 }
 
@@ -307,7 +311,7 @@ section .konten3{
 }
 
 .konten5{
-    background-color: #046bd2;
+    background-color: #840808;
     margin-top: 100px;
     padding-bottom: 50px;
 }
@@ -331,10 +335,14 @@ section .konten3{
 
 .konten5 .hubungi{
     margin-top: 20px;
-    background-color: #324154;
-    color: white;
+    background-color: #eadec4;
+    color: #840808;
     width: 170px;;
     height: 40px;
+}
+
+.konten5 .hubungi:hover{
+    background-color: #26d72c;
 }
 
 .konten6 .container{
@@ -343,13 +351,13 @@ section .konten3{
 
 .konten6 .judul, .konten7 .judul{
     margin-top: 120px;
-    color: #046bd2;
+    color: #840808;
     font-size: 35px;
     font-weight: bold;
 }
 
 .konten6 .judul span, .konten7 .judul span{
-    border-bottom: 3px solid #046bd2;
+    border-bottom: 3px solid #840808;
     padding-bottom: 4px; 
     font-size: 35px;
     font-weight: bold;
@@ -380,19 +388,23 @@ section .konten3{
     width: 220px;
     height: 45px;
     padding-bottom: 5px;
-    background-color: #324154;
+    background-color: #eadec4;
     justify-content: center;
+}
+
+.konten7 a:hover{
+    background-color: #26d72c;
 }
 
 .konten7 a i{
     font-size: 1rem ;
-    color: white;
+    color: #840808;
 }
 
 .konten7 a span{
     align-items: center;
     font-size: 1rem;
-    color: white;
+    color: #840808;
 }
 
 .konten7 .judul{
@@ -401,7 +413,7 @@ section .konten3{
 
 .konten7 .card p{
     font-weight: bold;
-    color: #046bd2;
+    color: #840808;
     font-family: 'Poppins',sans-serif;
 }
 
@@ -410,12 +422,12 @@ section .konten3{
 }
 
 .konten7 .user{
-    color: #046bd2;
+    color: #840808;
     font-size: 25px;
 }
 
 .konten7 .icon-round{
-    border: 3px #046bd2 solid;
+    border: 3px #840808 solid;
     border-radius: 50%;
     width: 35px;
     height: 35px;
@@ -429,17 +441,17 @@ section .konten3{
 }
 
 .konten7 .harga{
-    color: #046bd2;
+    color: #840808;
     font-size: 25px;
 }
 
 .konten7 .mobil{
-    color: #046bd2;
+    color: #840808;
     font-size: 25px;
 }
 
 .konten7 .jam{
-    color: #046bd2;
+    color: #840808;
     font-size: 20px;
 }
 
@@ -451,7 +463,7 @@ section .konten3{
 }
 
 .konten8{
-    background-color: #046bd2;
+    background-color: #840808;
     margin-top: 100px;
     padding-bottom: 30px;
 }
@@ -513,7 +525,7 @@ section .konten3{
 }
 
 .konten9 .round-icon{
-    background-color: #046bd2;
+    background-color: #840808;
     width: 30px;
     height: 30px;
     border-radius: 20px;
@@ -528,14 +540,14 @@ section .konten3{
 }
 
 .konten9 .icon{
-    color: #046bd2;
+    color: #840808;
     margin-right: 2px;
     font-size: 1.2rem;
 }
 
 /* travel */
 .travel1{
-    background-color: rgb(0, 149, 255);
+    background-color: #840808;
     height: 400px;
     margin-top: 90px;
     display: flex;
@@ -581,7 +593,7 @@ section .konten3{
     margin-top: 20px;
     height: 40px;
     padding-bottom: 5px;
-    background: linear-gradient(45deg, #6c7b8c, #324154);
+    background: linear-gradient(45deg, #6c7b8c, #eadec4);
     justify-content: center;
 }
 
@@ -626,7 +638,7 @@ section .konten3{
     font-family: 'Poppins', sans-serif;
     margin-top: 140px;
     margin-bottom: 50px;
-    color: #046bd2;
+    color: #840808;
     font-weight: bold;
     font-size: 40px;
 }
@@ -635,7 +647,7 @@ section .konten3{
     font-family: 'Poppins', sans-serif;
     margin-top: 50px;
     margin-bottom: 50px;
-    color: #046bd2;
+    color: #840808;
     font-weight: bold;
     font-size: 40px;
 }
@@ -665,7 +677,7 @@ section .konten3{
 }
 
 .travel-link .btn:hover {
-    background-color: #046bd2;
+    background-color: #840808;
     color: #fff;
 }
 
@@ -681,7 +693,7 @@ section .konten3{
     margin-top: 80px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    color: #046bd2;
+    color: #840808;
     font-size: 35px;
     margin-bottom: 40px;
 }
@@ -711,5 +723,5 @@ section .konten3{
 
   .batas-testi{
     height: 40px;
-    background-color: #046bd2;
+    background-color: #840808;
   }
