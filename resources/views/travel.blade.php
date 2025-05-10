@@ -23,7 +23,7 @@
                 <!-- mobil 3 -->
                 <div class="row mb-4">
                     <div class="col-md-4">
-                        <div class="card shadow-custom">
+                        <div class="card shadow-custom card-travel">
                             <p class="judul-card text-center">Bogor - Bandung</p>
                             <img src="{{ asset('asset/mobil1.png') }}" class="card-img-top" alt="img/car">
                             <div class="card-body">
