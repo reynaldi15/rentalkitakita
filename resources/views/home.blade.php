@@ -14,7 +14,7 @@
     </div>
 </section>
 <!-- konten 2 -->
-<section>
+<!-- <section>
     <div class="konten2">
         <div class="container">
             <div class="row">
@@ -47,6 +47,83 @@
                 </div>
             </div>
         </div>
+    </div>
+</section> -->
+
+<section class="konten2">
+    <!-- Desktop Version (3 Columns) -->
+    <div class="container d-none d-md-block py-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <img src="{{ asset('asset/driver.jpeg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Mobil + Driver</h5>
+                        <p class="card-text">kami melayani sewa mobil dengan driver yang berpengalaman.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <img src="{{ asset('asset/bandara.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Mobil Bandara</h5>
+                        <p class="card-text">Driver kami siap melayani Antar jemput bandara hingga 24 jam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <img src="{{ asset('asset/travel.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Travel Car</h5>
+                        <p class="card-text">Kami menyediakan mobil untuk kebutuhan Travel ke luar kota.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Version (Carousel) -->
+    <div id="layananCarousel" class="carousel slide d-block d-md-none" data-bs-ride="carousel" data-bs-interval="3500">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card text-center mx-3">
+                    <img src="{{ asset('asset/driver.jpeg') }}" class="card-img-top img-konten2 mx-auto" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Mobil + Driver</h5>
+                        <p class="card-text">kami melayani sewa mobil dengan driver yang berpengalaman.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card text-center mx-3">
+                    <img src="{{ asset('asset/bandara.jpg') }}" class="card-img-top img-konten2 mx-auto" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Mobil Bandara</h5>
+                        <p class="card-text">Driver kami siap melayani Antar jemput bandara hingga 24 jam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card text-center mx-3">
+                    <img src="{{ asset('asset/travel.jpg') }}" class="card-img-top img-konten2 mx-auto" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Travel Car</h5>
+                        <p class="card-text">Kami menyediakan mobil untuk kebutuhan Travel ke luar kota.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#layananCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#layananCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </section>
 
@@ -200,7 +277,7 @@
                 <div class="row mb-4">
                     @foreach($smallCars as $car)
                     <div class="col-md-4">
-                        <div class="card">
+                        <div class="card armadakecil">
                             <img src="{{ asset('storage/' . $car->image) }}" class="card-img-top" alt="img/car">
                             <div class="card-body">
                                 <hr>
