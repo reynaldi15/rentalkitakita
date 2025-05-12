@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Car;
+use App\Models\Contact;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -79,5 +80,15 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
          ]);
+        Contact::create([
+            'contactNumber' => '081234567890',
+            'rekeningNumber' => '1234567890',
+            'nasabahName' => 'John Doe',
+            'waLink' => 'https://wa.me/6281234567890',
+            'about' => 'Kami adalah rental mobil terpercaya.',
+            'email' => 'info@rentalmobil.com',
+            'instagram' => '@rentalmobil',
+            'address' => 'Jl. Soekarno Hatta No.123, Jakarta',
+        ]);
     }
 }

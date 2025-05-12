@@ -9,7 +9,7 @@
         <div class="container text-center">
             <h1>Rental KitaKita</h1>
             <h4>Sewa Mobil Profesional & Terpercaya Dengan Layanan Bintang Lima</h4>
-            <a class="btn" href="https://wa.me/6281234567890" target="_blank"><i class="bi bi-whatsapp me-2"></i> <span> Booking Sekarang </span></a>
+            <a class="btn" href="https://wa.me/+62{{ preg_replace('/[^0-9]/', '', $contactFooter->waLink) }}" target="_blank"><i class="bi bi-whatsapp me-2"></i> <span> Booking Sekarang </span></a>
         </div>
     </div>
 </section>
@@ -84,10 +84,9 @@
             <dotlottie-player class="warningIcon text-center" src="https://lottie.host/3eab4402-6814-4b3f-b2be-3abd4cadc2e8/PAvP5Kv4mH.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>
             <p class="mt-4 waspada">WASPADA PENIPUAN!!</p>
             <p class="labelNomor">Nomor admin resmi Rental KitaKita</p>
-            <!-- <a class="btn" href="https://wa.me/6281234567890" target="_blank"><i class="bi bi-whatsapp me-2"></i> <span> Booking Sekarang </span></a> -->
-            <a class="Nomor btn mt-5" href="https://wa.me/6281234567890">0821 2345 6789</a>
+            <a class="Nomor btn mt-5" href="https://wa.me/+62{{ preg_replace('/[^0-9]/', '', $contactFooter->waLink) }}" target="_blank">0{{ $contactFooter->waLink ?? '-' }}</a>
             <p class="labelRekening mt-3">Rekening Resmi KitaKita RentCar</p>
-            <button class="Rekening mt-5">BCA 021 843 8932<span>PT. Ayomi Raya</span></button>
+            <button class="Rekening mt-5">BCA {{$contactFooter->rekeningNumber ?? '-'}}<span>PT. Ayomi Raya</span></button>
         </div>
     </div>
 </section>
@@ -396,30 +395,6 @@
 </section>
 
 
-<!-- konten9 -->
-<section id="kontak">
-    <div class="konten9">
-        <div class="container">
-            <a class="navbar-brand text-black fw-bold" href="#">KitaKita Rent Car</a>
-            <p class="brand">Rental Mobil Profesional</p>
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="judul">Alamat Kantor Pusat :</p>
-                    <p>Selakopi Hijau blok F no 3-4, Pasir Mulya, Bogor Barat, Kota Bogor, 16118</p>
-                    <p>www.kitakita.com</p>
-                    <div class="round-icon">
-                        <a href="https:\\www.instagram.com/jepri_halomoan1"><i class="bi bi-instagram insta"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <p class="judul">Kontak :</p>
-                    <p><i class="bi bi-whatsapp icon"></i> 0852-1234-5678</p>
-                    <p><i class="bi bi-telephone-fill icon"></i> 0852-1234-5678</p>
-                    <p><i class="bi bi-envelope-fill icon"></i> kitakita@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 @endsection

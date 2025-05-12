@@ -48,9 +48,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-danger fw-bold" href="{{ route('blogs.index') }}">
+                <a class="nav-link text-danger fw-bold" href="{{ route('contacts.index') }}">
                     <i class="fas fa-blog me-2"></i> Kontak
                 </a>
+            </li>
+            <li class="nav-item">
+                <form action="{{ route('logout') }}" method="POST" class="d-inline w-100">
+                    @csrf
+                    <button type="submit" class="nav-link text-danger fw-bold btn w-100 text-start" style="background: none; border: none;">
+                        <i class="fas fa-right-from-bracket me-2"></i> Logout
+                    </button>
+                </form>
             </li>
         </ul>
     </aside>

@@ -18,6 +18,7 @@
 
     @include('fragment.navbar')
     @yield('content')
+    @include('fragment.footer')
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/6281234567890" target="_blank"
