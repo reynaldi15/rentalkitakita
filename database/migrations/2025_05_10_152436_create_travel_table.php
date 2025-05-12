@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('travel', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            // $table->string('departure')->nullable();
+            $table->string('destination');
             $table->integer('price');
             $table->string('image'); // path to the image file
             $table->json('features'); // list of features
-            $table->string('destinasi');
             $table->string('waLink')->nullable();
             $table->timestamps();
         });

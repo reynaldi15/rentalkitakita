@@ -5,13 +5,16 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Car;
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Product;
+use App\Models\Travel;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
+use PHPUnit\Event\Tracer\Tracer;
 
 class DatabaseSeeder extends Seeder
 {
@@ -84,11 +87,46 @@ class DatabaseSeeder extends Seeder
             'contactNumber' => '081234567890',
             'rekeningNumber' => '1234567890',
             'nasabahName' => 'John Doe',
-            'waLink' => 'https://wa.me/6281234567890',
+            'waLink' => '81234567890',
             'about' => 'Kami adalah rental mobil terpercaya.',
             'email' => 'info@rentalmobil.com',
             'instagram' => '@rentalmobil',
             'address' => 'Jl. Soekarno Hatta No.123, Jakarta',
+        ]);
+
+        Category::create(['name' => 'Jakarta']);
+        Category::create(['name' => 'Bogor']);
+        Category::create(['name' => 'Bandung']);
+
+        Travel::create([
+            'travel_category_id' => $categories['Jakarta'] ?? 1,
+                'destination' => 'Bandung',
+                'image' => 'travel/jakarta-bandung.jpg',
+                'price' => 350000,
+                'features' => json_encode(['Mobil AC', 'Driver Berpengalaman', 'Jemput di alamat']),
+                'waLink' => '81234567890',
+                'created_at' => now(),
+                'updated_at' => now(),
+        ]);
+        Travel::create([
+                'travel_category_id' => $categories['Jakarta'] ?? 1,
+                'destination' => 'Yogyakarta',
+                'image' => 'travel/jakarta-jogja.jpg',
+                'price' => 650000,
+                'features' => json_encode(['Mobil nyaman', 'Free air mineral', 'AC dingin']),
+                'waLink' => '81234567890',
+                'created_at' => now(),
+                'updated_at' => now(),
+        ]);
+        Travel::create([
+                'travel_category_id' => $categories['Bandung'] ?? 2,
+                'destination' => 'Semarang',
+                'image' => 'travel/bandung-semarang.jpg',
+                'price' => 600000,
+                'features' => json_encode(['Sopir sopan', 'Bisa request jam', 'Mobil bersih']),
+                'waLink' => '81234567890',
+                'created_at' => now(),
+                'updated_at' => now(),
         ]);
     }
 }

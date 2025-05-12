@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    protected $fillable = ['image'];
+    protected $fillable = ['name'];
 
+     public function travels()
+    {
+        return $this->hasMany(Travel::class);
+    }
 }

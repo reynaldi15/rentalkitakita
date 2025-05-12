@@ -43,6 +43,16 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-danger fw-bold" href="{{ route('travels.index') }}">
+                    <i class="fas fa-box me-2"></i> Travel
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger fw-bold" href="{{ route('categories.index') }}">
+                    <i class="fas fa-box me-2"></i> Category
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-danger fw-bold" href="{{ route('testimonis.index') }}">
                     <i class="fas fa-box me-2"></i> Testimoni
                 </a>

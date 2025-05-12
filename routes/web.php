@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\TestimoniController;
@@ -47,6 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/contacts', [ContactController::class,'edit'])->name('contacts.index');
     Route::post('/contacts/update', [ContactController::class,'update'])->name('contacts.update');
     Route::resource('travels', TravelController::class);
+    Route::resource('categories', CategoryController::class);
 
 });
 

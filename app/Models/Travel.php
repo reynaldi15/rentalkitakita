@@ -9,11 +9,18 @@ class Travel extends Model
 {
     use HasFactory;
         protected $fillable = [
-        'name', 'price', 'image', 'features', 'destinasi','waLink'
+        'category_id', 'destination','price', 'image', 'features','waLink'
+        // 'departure', 'destination','price', 'image', 'features','waLink','category_id'
     ];
 
-    protected $travels = [
+    protected $casts = [
         'features' => 'array',
     ];
+
+    public function category()
+{
+    return $this->belongsTo(Category::class, 'category_id');
+}
+    
 
 }

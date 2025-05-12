@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
@@ -27,8 +28,20 @@ class DashboardController extends Controller
 
     public function travel()
     {
-        $travels=Travel::latest()->paginate(8);
-        return view('travel',compact('travels'));
+        // $travels=Travel::latest()->paginate(8);
+        // return view('travel',compact('travels'));
+
+        // $travels = Travel::with('category')->get();
+        // // Kelompokkan berdasarkan kota keberangkatan
+        // $travelData = $travels->groupBy('category');
+
+        // return view('travel', compact('travelData'));
+
+        $travelData = Travel::with('category')->get()->groupBy(function ($item) {
+            return $item->category->name;
+        });
+
+        return view('travel', compact('travelData'));
     }
 
     public function testimoni()

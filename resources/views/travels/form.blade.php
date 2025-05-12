@@ -1,8 +1,32 @@
 <div class="mb-3">
-    <label>Nama Travel</label>
-    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-           value="{{ old('name', $travel->name ?? '') }}">
-    @error('name')
+    <label>Kategori</label>
+    <select name="category_id" class="form-control @error('category_id') is-invalid @enderror">
+        <option value="">-- Pilih Kategori --</option>
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}" {{ old('category_id', $travel->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                {{ $category->name }}
+            </option>
+        @endforeach
+    </select>
+    @error('category_id')
+        <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- <div class="mb-3">
+    <label>Keberangkatan</label>
+    <input type="text" name="departure" class="form-control @error('departure') is-invalid @enderror"
+           value="{{ old('departure', $travel->departure ?? '') }}">
+    @error('departure')
+        <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+</div> -->
+
+<div class="mb-3">
+    <label>Tujuan</label>
+    <input type="text" name="destination" class="form-control @error('destination') is-invalid @enderror"
+           value="{{ old('destination', $travel->destination ?? '') }}">
+    @error('destination')
         <div class="invalid-feedback">{{ $message }}</div>
     @enderror
 </div>
@@ -16,26 +40,14 @@
     @enderror
 </div>
 
-<!-- <div class="mb-3">
-    <label>Tipe</label>
-    <select name="type" class="form-control @error('type') is-invalid @enderror">
-        <option value="">-- Pilih Tipe --</option>
-        <option value="kecil" {{ old('type', $car->type ?? '') == 'kecil' ? 'selected' : '' }}>Kecil</option>
-        <option value="besar" {{ old('type', $car->type ?? '') == 'besar' ? 'selected' : '' }}>Besar</option>
-    </select>
-    @error('type')
-        <div class="invalid-feedback">{{ $message }}</div>
-    @enderror
-</div> -->
-
 <div class="mb-3">
     <label>Fitur (maksimal 4 fitur)</label>
     @php
-        $features = old('features', $car->features ?? []);
+        $features = old('features', $travel->features ?? []);
     @endphp
     @for ($i = 0; $i < 4; $i++)
         <input type="text" name="features[]" class="form-control mb-2 @error("features.$i") is-invalid @enderror"
-               value="{{ $features[$i] ?? '' }}" placeholder="Contoh: AC, Charger USB, dll">
+               value="{{ $features[$i] ?? '' }}" placeholder="Contoh: AC, Reclining Seat, dll">
         @error("features.$i")
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -45,7 +57,7 @@
 <div class="mb-3">
     <label>Nomor WhatsApp</label>
     <input type="text" name="waLink" class="form-control @error('waLink') is-invalid @enderror"
-        value="{{ old('waLink', $travel->waLink ?? '') }}">
+           value="{{ old('waLink', $travel->waLink ?? '') }}">
     @error('waLink')
         <div class="invalid-feedback">{{ $message }}</div>
     @enderror

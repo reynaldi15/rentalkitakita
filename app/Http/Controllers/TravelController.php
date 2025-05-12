@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Travel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +19,8 @@ class TravelController extends Controller
 
         $travels = Travel::orderBy($sort, $order)->paginate(10); // paginate, bukan get
         // $travel = Travel::all();
-        return view('travels.index',compact('travels'));
+        $categories = Category::all();
+        return view('travels.index',compact('travels','categories'));
     }
 
     /**
@@ -33,23 +35,26 @@ class TravelController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $validated  = $request->validate([
-            'name' => 'required|string|max:255',
-            'price' => 'required|integer',
-            'image' => 'required|image|mimes:jpg,jpeg,png',
-            'features' => 'required|array',
-            'features.*' => 'string',
-            'desinasi' => 'required|string|max:255',
-            'waLink'=> 'nullable'
-        ]);
+{
+    $validated = $request->validate([
+        // 'departure' => 'nullable|string|max:255',
+        'category_id' => 'required|exists:travel_categories,id',
+        'destination' => 'required|string|max:255',
+        'price' => 'required|integer',
+        'image' => 'required|image|mimes:jpg,jpeg,png',
+        'features' => 'required|array',
+        'features.*' => 'string',
+        'waLink' => 'nullable|string',
+        'category_id' => 'required|exists:categories,id',
+    ]);
 
+    $path = $request->file('image')->store('travel', 'public');
+    $validated['image'] = $path;
 
-        $path = $request->file('image')->strore('travels','public');
-        $validated['image']= $path;
-        Travel::create($validated);
-        return redirect()->route('travels.index')->with('successd','Travel has been added');
-    }
+    Travel::create($validated);
+
+    return redirect()->route('travels.index')->with('success', 'Data travel berhasil ditambahkan.');
+}
 
     /**
      * Display the specified resource.
@@ -73,13 +78,15 @@ class TravelController extends Controller
     public function update(Request $request, Travel $travel)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            // 'departure' => 'nullable|string|max:255',
+            'category_id' => 'required|exists:travel_categories,id',
+            'destination' => 'required|string|max:255',
             'price' => 'required|integer',
             'image' => 'nullable|image|mimes:jpg,jpeg,png',
             'features' => 'required|array',
             'features.*' => 'string',
-            'desetinasi' => 'required|string|max:255',
-            'waLink'=> 'nullable'
+            'waLink' => 'nullable|string',
+            'category_id' => 'required|exists:categories,id'
         ]);
 
         if ($request->hasFile('image')) {
