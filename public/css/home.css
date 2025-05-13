@@ -18,17 +18,17 @@ nav .navbar a, li, span{
 }
 
 nav .navbar-nav .nav-link:hover {
-    color: #046bd2;
+    color: #840808;
     cursor: pointer;
 }
 
 .nav-link.active {
-    color: #046bd2 !important;
+    color: #840808 !important;
     font-weight: bold;
 }
 
-section .konten1{
-    background-color: rgb(0, 149, 255);
+/* section .konten1{
+    background-color: #840808;
     height: 600px;
     margin-top: 90px;
 }
@@ -64,18 +64,70 @@ section .konten1 h4{
     width: 220px;
     height: 45px;
     padding-bottom: 5px;
-    background-color: #324154;
+    background-color: #eadec4;
+}
+
+.konten1 a:hover {
+    background-color: #26d72c;
 }
 
 .konten1 a i{
     font-size: 1rem ;
-    color: white;
+    color: #840808;
 }
 
 .konten1 a span{
     align-items: center;
     font-size: 1rem;
+    color: #840808;
+} */
+
+section .konten1 {
+    background-color: #840808;
+    height: auto;
+    margin-top: 90px;
+    padding: 120px 20px 60px; /* lebih fleksibel */
+}
+
+.konten1 .container {
+    padding: 0 10px;
+    text-align: center;
+}
+
+section .konten1 h1 {
+    font-size: 48px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
     color: white;
+}
+
+section .konten1 h4 {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+.konten1 a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 200px;
+    height: 45px;
+    background-color: #eadec4;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.konten1 a:hover {
+    background-color: #26d72c;
+}
+
+.konten1 a i,
+.konten1 a span {
+    font-size: 1rem;
+    color: #840808;
 }
 
 .konten2{
@@ -102,6 +154,17 @@ section .konten1 h4{
     height: 100px;
     width: 100px;
 }
+
+.konten2 img,
+.konten2 .img-konten2 {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 section .konten3{
     background-color: #e8ebf0;
@@ -133,7 +196,7 @@ section .konten3{
 }
 
 .konten3 .Nomor{
-    background-color: #046bd2;
+    background-color: #840808;
     color: white;
     width: 500px;
     height: 60px;
@@ -143,7 +206,7 @@ section .konten3{
 }
 
 .konten3 .Rekening{
-    background-color: #046bd2;
+    background-color: #840808;
     color: white;
     width: 500px;
     height: 80px;
@@ -169,22 +232,39 @@ section .konten3{
 }
 
 .konten4 .judul p{
-    color: #046bd2;
+    color: #840808;
     font-size: 35px;
     font-weight: bold;
     margin-bottom: -10px;
 }
 
 .konten4 .judul i{
-    color: #046bd2;
+    color: #840808;
     font-size: 35px;
+}
+
+.konten4 .armadakecil{
+    margin-top: 20px;
+}
+
+.konten4 .armadakecil hr{
+    margin-top: -2px;
+}
+
+.konten4 .armadakecil img{
+    max-width: 340px;
+    height: 170px;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .konten4 a{
     margin-top: 20px;
     height: 40px;
     padding-bottom: 5px;
-    background: linear-gradient(45deg, #6c7b8c, #324154);
+    background: linear-gradient(45deg, #6c7b8c, #eadec4);
     justify-content: center;
 }
 
@@ -218,7 +298,7 @@ section .konten3{
 }
 
 .konten5{
-    background-color: #046bd2;
+    background-color: #840808;
     margin-top: 100px;
     padding-bottom: 50px;
 }
@@ -242,10 +322,14 @@ section .konten3{
 
 .konten5 .hubungi{
     margin-top: 20px;
-    background-color: #324154;
-    color: white;
+    background-color: #eadec4;
+    color: #840808;
     width: 170px;;
     height: 40px;
+}
+
+.konten5 .hubungi:hover{
+    background-color: #26d72c;
 }
 
 .konten6 .container{
@@ -254,13 +338,13 @@ section .konten3{
 
 .konten6 .judul, .konten7 .judul{
     margin-top: 120px;
-    color: #046bd2;
+    color: #840808;
     font-size: 35px;
     font-weight: bold;
 }
 
 .konten6 .judul span, .konten7 .judul span{
-    border-bottom: 3px solid #046bd2;
+    border-bottom: 3px solid #840808;
     padding-bottom: 4px; 
     font-size: 35px;
     font-weight: bold;
@@ -291,19 +375,23 @@ section .konten3{
     width: 220px;
     height: 45px;
     padding-bottom: 5px;
-    background-color: #324154;
+    background-color: #eadec4;
     justify-content: center;
+}
+
+.konten7 a:hover{
+    background-color: #26d72c;
 }
 
 .konten7 a i{
     font-size: 1rem ;
-    color: white;
+    color: #840808;
 }
 
 .konten7 a span{
     align-items: center;
     font-size: 1rem;
-    color: white;
+    color: #840808;
 }
 
 .konten7 .judul{
@@ -312,7 +400,7 @@ section .konten3{
 
 .konten7 .card p{
     font-weight: bold;
-    color: #046bd2;
+    color: #840808;
     font-family: 'Poppins',sans-serif;
 }
 
@@ -321,12 +409,12 @@ section .konten3{
 }
 
 .konten7 .user{
-    color: #046bd2;
+    color: #840808;
     font-size: 25px;
 }
 
 .konten7 .icon-round{
-    border: 3px #046bd2 solid;
+    border: 3px #840808 solid;
     border-radius: 50%;
     width: 35px;
     height: 35px;
@@ -340,17 +428,17 @@ section .konten3{
 }
 
 .konten7 .harga{
-    color: #046bd2;
+    color: #840808;
     font-size: 25px;
 }
 
 .konten7 .mobil{
-    color: #046bd2;
+    color: #840808;
     font-size: 25px;
 }
 
 .konten7 .jam{
-    color: #046bd2;
+    color: #840808;
     font-size: 20px;
 }
 
@@ -362,7 +450,7 @@ section .konten3{
 }
 
 .konten8{
-    background-color: #046bd2;
+    background-color: #840808;
     margin-top: 100px;
     padding-bottom: 30px;
 }
@@ -384,7 +472,7 @@ section .konten3{
 }
 
 /* swipper corousel */
-.swiper-slide {
+/* .swiper-slide {
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -395,6 +483,32 @@ section .konten3{
     height: 200px;
     object-fit: cover;
   }
+
+.swiper {
+    padding-bottom: 30px;
+}
+
+.swiper-pagination-bullet {
+    background-color: #fff;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+} */
+
+.swiper-slide {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
 
 .swiper {
     padding-bottom: 30px;
@@ -424,7 +538,7 @@ section .konten3{
 }
 
 .konten9 .round-icon{
-    background-color: #046bd2;
+    background-color: #840808;
     width: 30px;
     height: 30px;
     border-radius: 20px;
@@ -439,7 +553,277 @@ section .konten3{
 }
 
 .konten9 .icon{
-    color: #046bd2;
+    color: #840808;
     margin-right: 2px;
     font-size: 1.2rem;
+}
+
+/* travel */
+.travel1{
+    background-color: #840808;
+    height: 400px;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.travel1 .container{
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center
+;}
+
+.travel1 h1{
+    font-size: 80px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: white;
+}
+
+.travel1 h4{
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: 300;
+    color: white;
+}
+
+.travel2 .container{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.travel2 .judul-card{
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Poppins' , sans-serif;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.travel2 a{
+    margin-top: 20px;
+    height: 40px;
+    padding-bottom: 5px;
+    background: linear-gradient(45deg, #6c7b8c, #eadec4);
+    justify-content: center;
+}
+
+.travel2 a i{
+    font-size: 1rem ;
+    color: white;
+}
+
+.travel2 a span{
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.travel2 .detail{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+.travel2 .kriteria{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -15px;
+}
+
+.travel2 .akhir{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -15px;
+    margin-bottom: -5px;
+}
+
+.travel2 .lokasi{
+    margin-top: 80px;
+    margin-bottom: 70px;
+    font-size: 40px;
+    font-weight: bold;
+
+}
+
+.travel2 .jakarta h3, .bandung h3{
+    font-family: 'Poppins', sans-serif;
+    margin-top: 140px;
+    margin-bottom: 50px;
+    color: #840808;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.travel2 .bogor h3{
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #840808;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.travel-link {
+    background-color: rgba(128, 128, 128, 0.8); /* abu transparan */
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+.travel-link .container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.travel-link .btn {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.travel-link .btn:hover {
+    background-color: #840808;
+    color: #fff;
+}
+
+/* testimoni */
+
+.testimoni .container{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.testimoni p{
+    text-align: center;
+    margin-top: 80px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #840808;
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+.testimoni hr{
+    margin-bottom: 60px;
+}
+
+.shadow-custom {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff;
+  }
+  
+  .shadow-custom:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .testimonial-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .batas-testi{
+    height: 40px;
+    background-color: #840808;
+  }
+
+  @media (max-width: 768px){
+    .konten1 .container{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    section .konten1 {
+        padding: 20px 15px 80px;
+    }
+
+    section .konten1 h1 {
+        font-size: 32px;
+    }
+
+    section .konten1 h4 {
+        font-size: 16px;
+    }
+
+    .konten1 a {
+        width: 180px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .konten1 a span{
+        font-size: 12px;
+    }
+
+    .konten8 .container, .konten4 .container, .konten5 .container, .konten6 .container, .konten7 .container, .konten9 .container{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .konten9{
+        padding-bottom: 80px;
+    }
+
+    .navbar-brand{
+        padding-left: 20px;
+    }
+
+    .travel2 .container{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .card-travel{
+        margin-bottom: 20px;
+    }
+
+    .konten5 .judul{
+        font-size: 1.8rem;
+    }
+    
+    .konten5 .penawaran{
+        font-size: 1rem;
+    }
+
+    .travel1 h1{
+        font-size: 3.5rem;
+    }
+
+    .travel1 h4{
+        font-size: 1.5rem;
+    }
+
+    .travel2 .lokasi{
+        font-size: 1.8rem;
+    }
+
+    .navbar-collapse{
+        background-color: white;
+    }
+
+    .navbar-nav{
+        padding-left: 20px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .swiper-slide img {
+        height: 160px;
+    }
+
+    .konten8 .judul {
+        text-align: center;
+        font-size: 24px;
+    }
 }

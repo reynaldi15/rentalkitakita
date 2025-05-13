@@ -11,7 +11,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return response()->json($products);
+        // return response()->json($products);
+        return view('products.index', compact('products'));
     }
 
     // Menampilkan produk berdasarkan ID
@@ -45,7 +46,8 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return response()->json($product, 201);
+        // return response()->json($product, 201);
+        return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan.');
     }
 
     // Mengupdate produk
@@ -73,7 +75,9 @@ class ProductController extends Controller
             $product->image = $path;
         }
 
-        return response()->json($product);
+        // return response()->json($product);
+        return redirect()->route('products.index')->with('success', 'Produk berhasil diubah.');
+
     }
 
     // Menghapus produk
@@ -82,7 +86,8 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
 
-        return response()->json(['message' => 'Product deleted successfully']);
+        // return response()->json(['message' => 'Product deleted successfully']);
+        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus.');
     }
 }
 

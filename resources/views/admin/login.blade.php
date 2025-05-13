@@ -1,48 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Kitakita Rent Car</title>
-    <!-- boostsrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <!-- css -->
-     <link rel="stylesheet" href="{{ asset('css/login.css') }}"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="/css/login.css" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container">
-        <div class="login">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card">
-                        <form>
-                            <img src="{{ asset('asset/driver.jpeg') }}" alt="KitaKita Rent Car" class="d-block mx-auto">
-                            <div class="mb-3 email">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3 password">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3 text-end remember">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                            </div>
-                            <button type="submit" class="btn d-block mx-auto">Log In</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+  <div class="login-container">
+    <!-- Icon mobil -->
+    <div class="login-logo">
+      <i class="fas fa-car"></i>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-        crossorigin="anonymous"></script>
-</body>
+    <!-- Form login -->
+    <form method="POST" action="{{ route('login') }}">
+      @csrf
 
+      @if(session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+      @endif
+
+      <div class="form-group">
+        <i class="fas fa-user form-icon"></i>
+        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+              placeholder="USERNAME" value="{{ old('email') }}" required autofocus>
+        @error('email')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
+
+      <div class="form-group">
+        <i class="fas fa-lock form-icon"></i>
+        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+              placeholder="PASSWORD" required>
+        @error('password')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
+
+      <button type="submit" class="btn btn-login">LOGIN</button>
+    </form>
+
+    @if (Route::has('password.request'))
+      <a href="{{ route('password.request') }}">Lupa Password?</a>
+    @endif
+  </div>
+
+</body>
 </html>

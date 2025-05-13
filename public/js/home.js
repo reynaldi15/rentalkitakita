@@ -9,7 +9,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+  // document.addEventListener('DOMContentLoaded', function () {
+  //     const swiper = new Swiper('.mySwiper', {
+  //       slidesPerView: 4,
+  //       slidesPerGroup: 1,
+  //       spaceBetween: 15,
+  //       loop: true,
+  //       autoplay: {
+  //         delay: 2500,
+  //         disableOnInteraction: false
+  //       },
+  //       pagination: {
+  //         el: '.swiper-pagination',
+  //         clickable: true
+  //       },
+  //       speed: 600
+  //     });
+  //   });
+
+  document.addEventListener('DOMContentLoaded', function () {
     const swiper = new Swiper('.mySwiper', {
       slidesPerView: 4,
       slidesPerGroup: 1,
@@ -23,6 +41,26 @@ document.addEventListener('DOMContentLoaded', function () {
         el: '.swiper-pagination',
         clickable: true
       },
-      speed: 600
+      speed: 600,
+  
+      // ✅ Tambahkan breakpoints untuk responsif
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 12
+        },
+        768: {
+          slidesPerView: 3
+        },
+        992: {
+          slidesPerView: 4
+        }
+      }
     });
   });
+  
+

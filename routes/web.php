@@ -2,6 +2,15 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\TravelController;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +26,8 @@ use Illuminate\Support\Facades\Route;
 
 // Halaman publik
 Route::get('/', [DashboardController::class, 'index'])->name('home');
-// Route::get('/', function(){
-//     return view('home');
-// });
+Route::get('/travel', [DashboardController::class, 'travel'])->name('travel');
+Route::get('/testimoni', [DashboardController::class, 'testimoni'])->name('testimoni');
 
 // Autentikasi
 Route::middleware('guest')->group(function () {
@@ -32,6 +40,15 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 // Halaman management (hanya bisa diakses jika login)
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'management'])->name('dashboard');
-    // Tambahkan route CRUD lainnya di sini (product, blog, dll)
+    Route::resource('products', ProductController::class);
+    // Route::resource('blogs', BlogController::class);
+    Route::resource('galleries', GalleryController::class);
+    Route::resource('cars', CarController::class);
+    Route::resource('testimonis', TestimoniController::class);
+    Route::get('/contacts', [ContactController::class,'edit'])->name('contacts.index');
+    Route::post('/contacts/update', [ContactController::class,'update'])->name('contacts.update');
+    Route::resource('travels', TravelController::class);
+    Route::resource('categories', CategoryController::class);
+
 });
 
