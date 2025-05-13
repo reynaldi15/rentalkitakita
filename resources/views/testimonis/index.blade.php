@@ -83,4 +83,21 @@
     </div>
 </div>
 @endforeach
+
+<!-- Script Modal Tetap Terbuka Saat Error -->
+@if ($errors->any())
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        @if(old('_method') === 'PUT')
+            const id = '{{ old('id') }}';
+            const modalId = `#editModal${id}`;
+            const modal = new bootstrap.Modal(document.querySelector(modalId));
+            modal.show();
+        @else
+            const modal = new bootstrap.Modal(document.querySelector('#createModal'));
+            modal.show();
+        @endif
+    });
+</script>
+@endif
 @endsection

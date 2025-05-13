@@ -11,7 +11,6 @@
 
 <body style="background-color: grey;">
     <!-- Toggle Button (Only on Mobile) -->
-    <!-- Hamburger Button (Muncul hanya di HP) -->
     <button id="menu-toggle" class="btn btn-outline-secondary d-md-none m-3">
         <i class="fas fa-bars"></i>
     </button>
@@ -76,10 +75,15 @@
     <div class="container mt-4" style="margin-left: 250px; padding-right: 60px">
         @yield('content')
     </div>
-    <!-- @yield('scripts') -->
 
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('js/dashboard.js') }}"></script>
+    <!-- <script src="{{ asset('js/dashboard.js') }}"></script> -->
+    
+    <!-- Script Section -->
+    @yield('scripts')
+    @stack('scripts')
 </body>
 
 </html>

@@ -11,9 +11,9 @@
 <body>
 
   <div class="login-container">
-    <!-- Icon keranjang -->
+    <!-- Icon mobil -->
     <div class="login-logo">
-    <i class="fas fa-car"></i>
+      <i class="fas fa-car"></i>
     </div>
 
     <!-- Form login -->
@@ -26,19 +26,27 @@
 
       <div class="form-group">
         <i class="fas fa-user form-icon"></i>
-        <input type="email" name="email" class="form-control" placeholder="USERNAME" required autofocus>
+        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+              placeholder="USERNAME" value="{{ old('email') }}" required autofocus>
+        @error('email')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
       </div>
 
       <div class="form-group">
         <i class="fas fa-lock form-icon"></i>
-        <input type="password" name="password" class="form-control" placeholder="PASSWORD" required>
+        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+              placeholder="PASSWORD" required>
+        @error('password')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
       </div>
 
       <button type="submit" class="btn btn-login">LOGIN</button>
     </form>
 
     @if (Route::has('password.request'))
-    <a href="{{ route('password.request') }}">Lupa Password?</a>
+      <a href="{{ route('password.request') }}">Lupa Password?</a>
     @endif
   </div>
 

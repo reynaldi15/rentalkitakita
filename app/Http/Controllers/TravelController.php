@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Travel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class TravelController extends Controller
 {
@@ -14,13 +15,20 @@ class TravelController extends Controller
      */
     public function index(Request $request)
     {
-        $sort = $request->get('sort', 'created_at'); // kolom pengurutan
-        $order = $request->get('order', 'desc');     // arah pengurutan (asc/desc)
+        // Hanya izinkan sorting berdasarkan kolom yang valid
+        $allowedSorts = ['created_at', 'price', 'destination'];
+        $sort = in_array($request->get('sort'), $allowedSorts) ? $request->get('sort') : 'created_at';
 
-        $travels = Travel::orderBy($sort, $order)->paginate(10); // paginate, bukan get
-        // $travel = Travel::all();
+        // Pastikan order hanya asc atau desc
+        $order = $request->get('order') === 'asc' ? 'asc' : 'desc';
+
+        // Ambil data travel dengan urutan dan pagination
+        $travels = Travel::orderBy($sort, $order)->paginate(10);
+
+        // Ambil semua kategori
         $categories = Category::all();
-        return view('travels.index',compact('travels','categories'));
+
+        return view('travels.index', compact('travels', 'categories', 'sort', 'order'));
     }
 
     /**
@@ -31,30 +39,44 @@ class TravelController extends Controller
         return view('travels.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
-{
-    $validated = $request->validate([
-        // 'departure' => 'nullable|string|max:255',
-        'category_id' => 'required|exists:travel_categories,id',
-        'destination' => 'required|string|max:255',
-        'price' => 'required|integer',
-        'image' => 'required|image|mimes:jpg,jpeg,png',
-        'features' => 'required|array',
-        'features.*' => 'string',
-        'waLink' => 'nullable|string',
-        'category_id' => 'required|exists:categories,id',
-    ]);
+    {
+        // Validasi dasar
+        $validated = $request->validate([
+            'category_id' => 'required|exists:categories,id',
+            'destination' => [
+                'required',
+                'string',
+                'max:255',
+                // Validasi unik kombinasi kategori + destination
+                Rule::unique('travels')->where(function ($query) use ($request) {
+                    return $query->where('category_id', $request->category_id);
+                }),
+            ],
+            'price' => 'required|integer',
+            'image' => 'required|image|mimes:jpg,jpeg,png',
+            'features' => 'required|array',
+            'features.*' => 'string',
+            'waLink' => 'nullable|string',
+        ]);
 
-    $path = $request->file('image')->store('travel', 'public');
-    $validated['image'] = $path;
+        // Cek jika destination == nama kategori (case-insensitive)
+        $category = Category::find($request->category_id);
+        if ($category && strtolower($request->destination) === strtolower($category->name)) {
+            return back()->withErrors(['destination' => 'Destination tidak boleh sama dengan nama kategori.'])->withInput();
+        }
 
-    Travel::create($validated);
+        // Upload gambar
+        $path = $request->file('image')->store('travel', 'public');
+        $validated['image'] = $path;
 
-    return redirect()->route('travels.index')->with('success', 'Data travel berhasil ditambahkan.');
-}
+        // Simpan
+        Travel::create($validated);
+
+        return redirect()->route('travels.index')->with('success', 'Data travel berhasil ditambahkan.');
+    }
+
 
     /**
      * Display the specified resource.

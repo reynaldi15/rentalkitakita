@@ -57,7 +57,7 @@ class CategoryController extends Controller
     {
         $request->validate(['name' => 'required|string|max:255']);
         $category->update($request->all());
-        return redirect()->route('travel-categories.index')->with('success', 'Kategori berhasil diperbarui.');
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil diperbarui.');
     }
 
     /**
@@ -66,6 +66,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
          $category->delete();
-        return redirect()->route('travel-categories.index')->with('success', 'Kategori berhasil dihapus.');
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus.');
     }
 }

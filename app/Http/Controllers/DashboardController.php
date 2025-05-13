@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Testimoni;
 use App\Models\Travel;
+use App\Models\Visitor;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
@@ -53,6 +54,23 @@ class DashboardController extends Controller
     
     public function management()
     {
-        return view('admin.dashboard');
+        $totalVisitors = Visitor::count();
+        $todayVisitors = Visitor::whereDate('created_at', today())->count();
+
+        $last7Days = collect(range(6, 0))->map(function ($i) {
+            return now()->subDays($i)->format('Y-m-d');
+        });
+
+        $visitorCounts = $last7Days->map(function ($date) {
+            return Visitor::whereDate('created_at', $date)->count();
+        });
+
+        return view('admin.dashboard', [
+            'totalVisitors' => $totalVisitors,
+            'todayVisitors' => $todayVisitors,
+            'visitorDates' => $last7Days,
+            'visitorCounts' => $visitorCounts,
+        ]);
+
     }
 }

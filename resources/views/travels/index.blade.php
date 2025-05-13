@@ -75,6 +75,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
+                <!-- @if ($errors->any() && old('_method') !== 'PUT')
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif -->
                 @include('travels.form', ['travel' => null])
             </div>
             <div class="modal-footer">
@@ -90,12 +99,24 @@
 <div class="modal fade" id="editModal{{ $travel->id }}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <form method="POST" action="{{ route('travels.update', $travel) }}" enctype="multipart/form-data" class="modal-content">
-            @csrf @method('PUT')
+            @csrf
+            @method('PUT')
+            <input type="hidden" name="id" value="{{ $travel->id }}">
+            <input type="hidden" name="_method" value="PUT">
             <div class="modal-header">
                 <h5 class="modal-title">Edit Travel</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
+                <!-- @if ($errors->any() && old('_method') === 'PUT' && old('id') == $travel->id)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif -->
                 @include('travels.form', ['travel' => $travel])
             </div>
             <div class="modal-footer">
@@ -106,4 +127,21 @@
     </div>
 </div>
 @endforeach
+
+<!-- Script untuk menjaga modal tetap terbuka saat ada error -->
+@if ($errors->any())
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        @if(old('_method') === 'PUT')
+            const id = '{{ old('id') }}';
+            const modalId = `#editModal${id}`;
+            const modal = new bootstrap.Modal(document.querySelector(modalId));
+            modal.show();
+        @else
+            const modal = new bootstrap.Modal(document.querySelector('#createModal'));
+            modal.show();
+        @endif
+    });
+</script>
+@endif
 @endsection

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('travel', function (Blueprint $table) {
+        Schema::create('travels', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             // $table->string('departure')->nullable();
-            $table->string('destination');
+            $table->string('destination')->unique();
             $table->integer('price');
             $table->string('image'); // path to the image file
             $table->json('features'); // list of features
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('travel');
+        Schema::dropIfExists('travels');
     }
 };

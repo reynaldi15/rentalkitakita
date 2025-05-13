@@ -98,35 +98,35 @@ class DatabaseSeeder extends Seeder
         Category::create(['name' => 'Bogor']);
         Category::create(['name' => 'Bandung']);
 
-        Travel::create([
-            'travel_category_id' => $categories['Jakarta'] ?? 1,
-                'destination' => 'Bandung',
-                'image' => 'travel/jakarta-bandung.jpg',
-                'price' => 350000,
-                'features' => json_encode(['Mobil AC', 'Driver Berpengalaman', 'Jemput di alamat']),
-                'waLink' => '81234567890',
-                'created_at' => now(),
-                'updated_at' => now(),
-        ]);
-        Travel::create([
-                'travel_category_id' => $categories['Jakarta'] ?? 1,
-                'destination' => 'Yogyakarta',
-                'image' => 'travel/jakarta-jogja.jpg',
-                'price' => 650000,
-                'features' => json_encode(['Mobil nyaman', 'Free air mineral', 'AC dingin']),
-                'waLink' => '81234567890',
-                'created_at' => now(),
-                'updated_at' => now(),
-        ]);
-        Travel::create([
-                'travel_category_id' => $categories['Bandung'] ?? 2,
-                'destination' => 'Semarang',
-                'image' => 'travel/bandung-semarang.jpg',
-                'price' => 600000,
-                'features' => json_encode(['Sopir sopan', 'Bisa request jam', 'Mobil bersih']),
-                'waLink' => '81234567890',
-                'created_at' => now(),
-                'updated_at' => now(),
-        ]);
+        // Travel::create([
+        //     'travel_category_id' => $categories['Jakarta'] ?? 1,
+        //         'destination' => 'Bandung',
+        //         'image' => 'travel/jakarta-bandung.jpg',
+        //         'price' => 350000,
+        //         'features' => json_encode(['Mobil AC', 'Driver Berpengalaman', 'Jemput di alamat']),
+        //         'waLink' => '81234567890',
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        // ]);
+        // Travel::create([
+        //         'travel_category_id' => $categories['Jakarta'] ?? 1,
+        //         'destination' => 'Yogyakarta',
+        //         'image' => 'travel/jakarta-jogja.jpg',
+        //         'price' => 650000,
+        //         'features' => json_encode(['Mobil nyaman', 'Free air mineral', 'AC dingin']),
+        //         'waLink' => '81234567890',
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        // ]);
+        // Travel::create([
+        //         'travel_category_id' => $categories['Bandung'] ?? 2,
+        //         'destination' => 'Semarang',
+        //         'image' => 'travel/bandung-semarang.jpg',
+        //         'price' => 600000,
+        //         'features' => json_encode(['Sopir sopan', 'Bisa request jam', 'Mobil bersih']),
+        //         'waLink' => '81234567890',
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        // ]);
     }
 }
